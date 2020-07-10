@@ -24,24 +24,24 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = [d for d in humans if d.name.startswith("D")]
+a = [d.name for d in humans if d.name.startswith("D")]
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = [d for d in humans if d.name.endswith("e")]
+b = [d.name for d in humans if d.name.endswith("e")]
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = [d for d in humans if d.name.startswith('C')]
+c = [d.name for d in humans if d.name[0] == 'C' or d.name[0] == 'D' or d.name[0] == 'E' or d.name[0] == 'F' or d.name[0] == 'G']
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = [a for a in humans if a.age > 10]
+d = [a.age + 10 for a in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
@@ -55,7 +55,7 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = [(n.name, n.age) for n in humans]
+f = [(n.name, n.age) for n in humans if n.age >= 27 and n.age <=32]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
@@ -68,5 +68,5 @@ print(g)
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
-h = [n.age**n.age for n in humans]
+h = [math.sqrt(n.age) for n in humans]
 print(h)
